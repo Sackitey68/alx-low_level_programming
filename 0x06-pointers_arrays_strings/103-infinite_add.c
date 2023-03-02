@@ -2,7 +2,7 @@
 
 /**
  * rev_string - reverse array
- * @n: integer parameter
+ * @n: integer params
  * Return: 0
  */
 
@@ -76,5 +76,4 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	rev_string(r);
 	return (r);
 }
-
 
