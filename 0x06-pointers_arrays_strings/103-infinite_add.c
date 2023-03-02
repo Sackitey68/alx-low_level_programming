@@ -2,7 +2,7 @@
 
 /**
  * rev_string - reverse array
- * @n: integer params
+ * @n: integer parameter
  * Return: 0
  */
 
