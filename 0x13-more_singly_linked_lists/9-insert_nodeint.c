@@ -1,52 +1,47 @@
 #include "lists.h"
-#include <stdio.h>
+#include <stdlib.h>
+
 /**
- * insert_nodeint_at_index - insert a new node at a given position
- * @head: double pointer to head
- * @index: insert node at this index, starting count at 0
- * @n: value to store in node
- * Return: Address of new node or NULL if failed
+ * insert_nodeint_at_index - inserts a new node at a given position
+ * @head: pointer to the beginning of linked list
+ * @index: index where to insert
+ * @n: value for n
+ * Return: the address of new node or NULL if fails
  */
+
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	listint_t *new;
-	listint_t *current;
-	unsigned int count;
+	listint_t *new, *catch = *head;
+	unsigned int i = 0;
 
-	if (head == NULL)
-		return (NULL);
-
-	current = *head;
-	for (count = 1; current && count < index; count++)
+	if (!index)
 	{
-		current = current->next;
-		if (current == NULL)
+		new = malloc(sizeof(listint_t));
+		if (!new)
 			return (NULL);
-	}
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	new->n = n;
+		(*new).n = n;
+		(*new).next = *head;
 
-	if (index == 0)
-	{
 		*head = new;
-		new->next = current;
-	}
-	else if (current->next)
-	{
-		new->next = current->next;
-		current->next = new;
-	}
-	else
-	{
-		new->next = NULL;
-		current->next = new;
+
+		return (*head);
 	}
 
-	return (new);
+	while (catch)
+	{
+		if (i == (index - 1))
+		{
+			new = malloc(sizeof(listint_t));
+			if (!new)
+				return (NULL);
+			(*new).n = n;
+			(*new).next = (*catch).next;
+			(*catch).next = new;
+			return (new);
+		}
+		catch = (*catch).next;
+		i++;
+	}
+	return (NULL);
 }
