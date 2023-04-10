@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * print_binary - prints binary representation of number
  * @n: input number
