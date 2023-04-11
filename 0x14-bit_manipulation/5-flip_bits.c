@@ -1,18 +1,21 @@
 #include "main.h"
+
 /**
- * flip_bits - calls count_bits function
+ * flip_bits - returns the number of bits you would
+ * need to flip to get from one number to another
  * @n: first input number
  * @m: second input number
- * Return: number of bits flipped
+ *
+ * Return: number of bits.
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int hold = n ^ m, count = 0;
+	unsigned int temp;
 
-	while (hold)
+	for (temp = 0; n || m; n >>= 1, m >>= 1)
 	{
-		count += hold & 1;
-		hold >>= 1;
+	if ((n & 1) != (m & 1))
+	temp++;
 	}
-	return (count);
+	return (temp);
 }
