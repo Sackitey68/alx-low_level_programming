@@ -1,28 +1,31 @@
 #include "main.h"
 /**
-*binary_to_uint - converts number in base two to an uinsigned int.
-*@b: pointer to a string containing the number in base 2
-*
-*Return: unsigned int with a decimal value of number in base 2 or 0 if error
-*/
+ * binary_to_uint - converts a binary number into unisgned int
+ * @b: string that contains the binary number
+ * Return: a number with unsigned int type
+ */
 unsigned int binary_to_uint(const char *b)
 {
-	int count;
-	unsigned int num;
+	int cont = 0, i, j;
+	unsigned int sum = 0, bin = 2;
 
-	count = 0;
-	if (!b)
+	if (b == NULL)
 		return (0);
-	for (count = 0; b[count] != '\0'; count++)
+	while (b[cont] != '\0')
 	{
-		if (b[count] != '0' && b[count] != '1')
+		if (b[cont] != '1' && b[cont] != '0')
 			return (0);
+		cont++;
 	}
-	for (count = 0; b[count] != '\0'; count++)
+	for (i = cont - 1, j = 0; i >= 0; i--, j++)
 	{
-		num <<= 1;
-		if (b[count] == '1')
-			num += 1;
+		if (j == 0)
+			sum = sum + (b[i] - '0');
+		else
+		{
+			sum = sum + ((b[i] - '0') * bin);
+			bin = bin * 2;
+		}
 	}
-	return (num);
+	return (sum);
 }
