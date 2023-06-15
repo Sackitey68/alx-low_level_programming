@@ -1,5 +1,9 @@
 #ifndef MAIN_H
+<<<<<<< HEAD
 #define MAINN_H
+=======
+#define MAIN_H
+>>>>>>> d07de7d5b88acad442b9468dec32df6c3374dd63
 
 #include <stddef.h>
 #include <unistd.h>

@@ -42,4 +42,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	return (lRead);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d07de7d5b88acad442b9468dec32df6c3374dd63
